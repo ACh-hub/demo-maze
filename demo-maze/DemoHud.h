@@ -15,6 +15,7 @@ class HudTextSettings;
 class HudText;
 
 
+
 // Podstawowa klasa do rysowania HUD
 class DemoHud
 {
@@ -33,6 +34,8 @@ public:
 	~DemoHud();
 };
 
+
+
 // Tekst do wyœletlania na HUD
 class HudText
 {
@@ -47,6 +50,8 @@ public:
 	HudText(std::wstring message, sf::Vector2f position);
 	~HudText();
 };
+
+
 
 //Ustawienia HUD
 class HudTextSettings

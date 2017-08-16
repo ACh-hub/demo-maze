@@ -1,6 +1,6 @@
 //
 //  File:        DemoTile.h
-//  Description: 
+//  Description: Klasa do tworzenia pojedyñczych komórek labiryntu
 //  Created:     11-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
@@ -25,7 +25,6 @@ protected:
 	sf::RectangleShape tile_shape_;
 	Walls* walls_;
 	Flags* flags_;
-
 public:
 	sf::Vector2f GetTileCoordinates() { return tile_coordinates_; }
 	sf::Vector2i GetTileRealCoordinates();
@@ -40,6 +39,8 @@ public:
 	DemoTile(sf::Vector2f coordinates, int size);
 	~DemoTile();
 };
+
+
 
 class Walls
 {
@@ -64,21 +65,19 @@ public:
 	~Walls();
 };
 
+
+
 class Flags
 {
 private:
-
 	bool _is_visited_flag_, _on_stack_flag_, _done_flag_;
 	bool _is_expanded_flag_, _is_path_flag_;
-
-
 public:
 	sf::Color is_visited_color = sf::Color(169, 238, 171);
 	sf::Color on_stack_color_ = sf::Color(151, 201, 119);
 	sf::Color done_color_ = sf::Color(255, 252, 184);
 	sf::Color is_expanded_color_ = sf::Color(151, 208, 236);
 	sf::Color is_path_color = sf::Color(244, 168, 218);
-
 	void ClearAllFlags();
 	bool GetIsVisitedFlag() { return _is_visited_flag_; }
 	void SetIsVisitedFlag(bool val) { _is_visited_flag_=val; }

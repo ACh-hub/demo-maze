@@ -1,6 +1,6 @@
 //
 //  File:			GenerateMazeState.h
-//  Description:	
+//  Description:	Stan do tworzenia labiryntu. Algorytm Recursive Backtracking
 //  Created:		11-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com

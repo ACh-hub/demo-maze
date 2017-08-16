@@ -8,6 +8,7 @@
 //
 
 #pragma once
+
 #include<vector>
 
 #include"Demo.h"
@@ -42,11 +43,8 @@ protected:
 	int maze_width_, maze_cols_;
 	std::vector<DemoTile*> grid_;
 	void _MakeGrid();
-
 	void SetDone();
-
 public:
-
 	int GetTileIndexByPosition(int col, int row);
 	bool GetDone();
 	std::vector<DemoTile*> GetGrid() { return grid_; }

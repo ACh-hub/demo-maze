@@ -1,6 +1,5 @@
 //
-//  File:        DemoTile.h
-//  Description: 
+//  File:        DemoTile.cpp
 //  Created:     11-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
@@ -17,17 +16,20 @@ sf::Vector2i DemoTile::GetTileRealCoordinates()
 	return real_coordinates;
 }
 
+
 void DemoTile::SetTileColor(sf::Color color)
 {
 	if (tile_shape_.getFillColor() != color)
 		tile_shape_.setFillColor(color);
 }
 
+
 void DemoTile::DrawTile(sf::RenderWindow* window, float timestamp)
 {
 	window->draw(tile_shape_);
 	walls_->DrawWalls(window, timestamp);
 }
+
 
 DemoTile::DemoTile(sf::Vector2f coordinates, int size)
 	:

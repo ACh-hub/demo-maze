@@ -1,7 +1,7 @@
 //
-//  File:        DemoTile.h
-//  Description: 
-//  Created:     11-08-2017
+//  File:        Entity.cpp
+
+//  Created:     13-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
@@ -18,10 +18,14 @@ Entity::~Entity()
 {
 }
 
+
+
 void Dot::Draw(sf::RenderWindow * window, const float timestamp)
 {
 	window->draw(_dot_shape_);
 }
+
+
 
 Dot::Dot(sf::Vector2i coordinates, int size, int radius)
 	:
@@ -37,6 +41,7 @@ Dot::Dot(sf::Vector2i coordinates, int size, int radius)
 	_dot_shape_.setPosition(sf::Vector2f(_dot_coordinates_));
 
 }
+
 
 Dot::~Dot()
 {
@@ -56,10 +61,10 @@ void Pac::RotatePac(std::string direction)
 	else if (direction == "WEST")
 		_pac_sprite_.rotate(180);
 	else
-	{
-		///// Error state
-	}
+		;
 }
+
+
 
 void Pac::MovePac(DemoTile * current_tile, DemoTile * next_tile)
 {
@@ -67,17 +72,11 @@ void Pac::MovePac(DemoTile * current_tile, DemoTile * next_tile)
 	sf::Vector2f next_tile_coords = sf::Vector2f(next_tile->GetTileRealCoordinates());
 	sf::Vector2f pac_coords = _pac_sprite_.getPosition();
 
-
 	float x_move = next_tile_coords.x - current_tile_coords.x;
 	float y_move = next_tile_coords.y - current_tile_coords.y;
 
-
 		_pac_sprite_.move(sf::Vector2f(x_move, y_move));
 		sf::sleep(sf::seconds(0.1)); // wait for a second(actually 0.02)
-
-
-
-
 }
 
 

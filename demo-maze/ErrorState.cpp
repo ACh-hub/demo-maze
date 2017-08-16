@@ -1,13 +1,11 @@
 //
-//  File:        DemoTile.h
-//  Description: 
-//  Created:     11-08-2017
+//  File:        ErrorState.cpp
+//  Created:     15-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
 
 #include "ErrorState.h"
-
 
 
 void ErrorState::Draw(const float timestamp)
@@ -16,9 +14,11 @@ void ErrorState::Draw(const float timestamp)
 	hud_->DrawHud(&(demo_->window_), timestamp);
 }
 
+
 void ErrorState::Update(const float timestamp)
 {
 }
+
 
 void ErrorState::HandleEvents()
 {
@@ -44,6 +44,7 @@ void ErrorState::HandleEvents()
 		}
 	}
 }
+
 
 ErrorState::ErrorState(Demo* demo)
 {
