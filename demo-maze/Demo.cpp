@@ -1,6 +1,5 @@
 //
-//  File:        DemoTile.h
-//  Description: 
+//  File:        Demo.cpp
 //  Created:     11-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
@@ -13,17 +12,19 @@
 #include"DemoState.h"
 
 
-// 
-inline void Demo::PushState(DemoState* state)
+
+void Demo::PushState(DemoState* state)
 {
 	states_.push(state);
 }
+
 
 void Demo::PopState()
 {
 	delete states_.top();
 	states_.pop();
 }
+
 
 void Demo::ChangeState(DemoState* state)
 {
@@ -32,11 +33,13 @@ void Demo::ChangeState(DemoState* state)
 	PushState(state);
 }
 
+
 DemoState* Demo::TopState()
 {
 	if (states_.empty()) return nullptr;
 	else return states_.top();
 }
+
 
 // Main loop
 void Demo::RunDemo()
@@ -55,6 +58,7 @@ void Demo::RunDemo()
 		window_.display();
 	}
 }
+
 
 Demo::Demo(int demo_width, int demo_height)
 	:demo_width_(demo_width), demo_height_(demo_height)

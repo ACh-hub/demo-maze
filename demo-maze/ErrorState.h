@@ -1,14 +1,15 @@
 //
-//  File:        DemoTile.h
-//  Description: 
-//  Created:     11-08-2017
+//  File:        ErrorState.h
+//  Description: stan do wyœwietlania informacji o b³êdzie.
+//  Created:     15-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
 
-
 #pragma once
+
 #include "DemoState.h"
+
 
 class ErrorState : public DemoState
 {

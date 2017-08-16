@@ -1,7 +1,7 @@
 //
-//  File:        DemoTile.h
-//  Description: 
-//  Created:     11-08-2017
+//  File:        SolvedState.h
+//  Description: Stan do wyœwietlania pacmana
+//  Created:     14-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
@@ -12,13 +12,13 @@
 #include "Entity.h"
 #include "BfsSolverState.h"
 
+
 class SolvedState : public MazeState
 {
 private:
 	DemoTile *start_tile_, *end_tile_, *current_tile_;
 	std::vector<int> shortest_path_;
 	std::vector<Dot*> path_dots_;
-	
 	Pac* _pac_man_;
 public:
 	std::vector<int>GetShortestPath() { return shortest_path_; }

@@ -1,6 +1,5 @@
 //
-//  File:        DemoTile.h
-//  Description: 
+//  File:        DemoState.cpp
 //  Created:     11-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
@@ -39,6 +38,7 @@ int MazeState::GetTileIndexByPosition(int col, int row)
 	else return col * maze_cols_ + row;
 }
 
+
 void MazeState::SetDone()
 {
 	for (auto it = grid_.begin(); it != grid_.end(); ++it)
@@ -47,6 +47,7 @@ void MazeState::SetDone()
 			(*it)->GetFlags()->SetDoneFlag(true);
 	}
 }
+
 
 bool MazeState::GetDone()
 {
@@ -58,7 +59,7 @@ bool MazeState::GetDone()
 }
 
 
-void MazeState::Draw(const float timestamp)
+inline void MazeState::Draw(const float timestamp)
 {
 
 	demo_->window_.clear(sf::Color::White);

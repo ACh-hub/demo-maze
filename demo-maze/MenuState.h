@@ -14,6 +14,8 @@
 #include "DemoHud.h"
 #include "ErrorState.h"
 
+
+
 class MenuState : public DemoState
 {
 private:
@@ -23,11 +25,12 @@ private:
 	std::wstring own_resolution_;
 	sf::Texture background_image_;
 	sf::Sprite background_;
-
 public:
 	void PushErrorState();
 	void PushGenerateMazeState(int cols);
-	void CreateMenuItems(sf::Vector2f initial_position, sf::Vector2f menu_item_size, std::vector<std::wstring> msgs, sf::Color menu_color);
+	void CreateMenuItems(sf::Vector2f initial_position, 
+						sf::Vector2f menu_item_size, std::vector<std::wstring> msgs,
+						sf::Color menu_color);
 	virtual void Draw(const float timestamp);
 	virtual void Update(const float timestamp);
 	virtual void HandleEvents();

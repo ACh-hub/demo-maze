@@ -1,7 +1,16 @@
+//
+//  File:			Entity.h
+//  Description:	Klasa do tworzenia i obs³ugi entity
+//					Klasa do tworzenia i obs³ugi pacmana oraz kropek œcie¿ki
+//  Created:		13-08-2017
+//  Author:			Aleksandra Chrapkowska
+//  mail:			amchrapkowska@gmail.com
+//
+
 #pragma once
+
 #include <SFML\Graphics.hpp>
 #include "DemoTile.h"
-
 
 
 class Entity
@@ -13,6 +22,8 @@ public:
 	virtual ~Entity();
 };
 
+
+
 class Dot : public Entity
 {
 protected:
@@ -20,7 +31,6 @@ protected:
 	sf::CircleShape _dot_shape_;
 	sf::Color _dot_shape_color_;
 	int _dot_radius_;
-
 public:
 	sf::Vector2i GetCoordinates() { return _dot_coordinates_; }
 	virtual void Draw(sf::RenderWindow * window, const float timestamp);
@@ -28,6 +38,8 @@ public:
 	Dot(sf::Vector2i coordinates, int size, int radius = 4);
 	~Dot();
 };
+
+
 
 class Pac : public Dot
 {

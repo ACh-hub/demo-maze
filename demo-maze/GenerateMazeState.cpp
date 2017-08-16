@@ -13,7 +13,6 @@
 
 
 
-
 DemoTile * GenerateMazeState::_RandomNeighbour(DemoTile * tile)
 {
 	unsigned int index;
@@ -46,7 +45,6 @@ DemoTile * GenerateMazeState::_RandomNeighbour(DemoTile * tile)
 }
 
 
-
 void GenerateMazeState::DigHole(DemoTile * tile1, DemoTile * tile2)
 {
 	if (tile1->GetY() == tile2->GetY() + 1)
@@ -72,7 +70,6 @@ void GenerateMazeState::DigHole(DemoTile * tile1, DemoTile * tile2)
 }
 
 
-
 void GenerateMazeState::SetDone()
 {
 	if (!maze_done_)
@@ -88,12 +85,10 @@ void GenerateMazeState::SetDone()
 }
 
 
-
 void GenerateMazeState::PushGenerateMazeState()
 {
 	demo_->PushState(new GenerateMazeState(demo_, maze_cols_));
 }
-
 
 
 void GenerateMazeState::PushBfsSolverState()
@@ -101,11 +96,11 @@ void GenerateMazeState::PushBfsSolverState()
 	demo_->PushState(new BfsSolverState(GetGrid(), demo_, maze_cols_));
 }
 
+
 void GenerateMazeState::PushMenuState()
 {
 	demo_->PushState(new MenuState(demo_));
 }
-
 
 
 void GenerateMazeState::Draw(const float timestamp)
@@ -123,7 +118,6 @@ void GenerateMazeState::Draw(const float timestamp)
 	MazeState::Draw(timestamp);
 	hud_->DrawHud(&(demo_->window_), timestamp);
 }
-
 
 
 void GenerateMazeState::Update(const float timestamp)
@@ -158,7 +152,6 @@ void GenerateMazeState::Update(const float timestamp)
 }
 
 
-
 void GenerateMazeState::HandleEvents()
 {
 	sf::Event event;
@@ -190,7 +183,6 @@ void GenerateMazeState::HandleEvents()
 }
 
 
-
 GenerateMazeState::GenerateMazeState(Demo* demo, int cols)
 	: 
 	MazeState::MazeState(demo, cols),
@@ -205,7 +197,6 @@ GenerateMazeState::GenerateMazeState(Demo* demo, int cols)
 								sf::Vector2f(10, 35));
 	hud_->InsertHudMsg(L"Esc menu", sf::Vector2f(10, 60));
 }
-
 
 
 GenerateMazeState::~GenerateMazeState()

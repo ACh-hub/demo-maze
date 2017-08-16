@@ -1,7 +1,6 @@
 //
-//  File:        DemoTile.h
-//  Description: 
-//  Created:     11-08-2017
+//  File:        SolvedState.cpp
+//  Created:     14-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
@@ -9,6 +8,7 @@
 #include "SolvedState.h"
 #include "Entity.h"
 #include "GenerateMazeState.h"
+
 
 std::string SolvedState::GetPassageDirection(DemoTile * tile_from, DemoTile * tile_to)
 {
@@ -30,9 +30,9 @@ std::string SolvedState::GetPassageDirection(DemoTile * tile_from, DemoTile * ti
 	
 	direction = "NO_PASARAN__";
 		
-
 	return direction;
 }
+
 
 DemoTile * SolvedState::GetTileByIndex(int index)
 {
@@ -40,6 +40,7 @@ DemoTile * SolvedState::GetTileByIndex(int index)
 		return grid_[index];
 	else return nullptr;
 }
+
 
 void SolvedState::Draw(const float timestamp)
 {
@@ -59,6 +60,7 @@ void SolvedState::Draw(const float timestamp)
 	_pac_man_->Draw(&(demo_->window_), timestamp);
 	hud_->DrawHud(&(demo_->window_), timestamp);
 }
+
 
 void SolvedState::Update(const float timestamp)
 {
@@ -113,6 +115,7 @@ void SolvedState::Update(const float timestamp)
 
 }
 
+
 void SolvedState::HandleEvents()
 {
 	sf::Event event;
@@ -141,11 +144,13 @@ void SolvedState::HandleEvents()
 	}
 }
 
+
 void SolvedState::PushBfsSolverState()
 {
 
 	demo_->PushState(new BfsSolverState(GetGrid(), demo_, maze_cols_));
 }
+
 
 void SolvedState::PushGenerateMazeState()
 {
@@ -153,10 +158,12 @@ void SolvedState::PushGenerateMazeState()
 	demo_->PushState(new GenerateMazeState(demo_, maze_cols_));
 }
 
+
 void SolvedState::PushMenuState()
 {
 	demo_->PushState(new MenuState(demo_));
 }
+
 
 SolvedState::SolvedState(std::vector<DemoTile*> grid, 
 						std::vector<int> shortest_path, DemoTile * start, 
@@ -185,6 +192,7 @@ SolvedState::SolvedState(std::vector<DemoTile*> grid,
 	GetHud()->InsertHudMsg(L"Space  nowe rozwi¹zanie", sf::Vector2f(10, 35));
 	GetHud()->InsertHudMsg(L"Esc  menu", sf::Vector2f(10, 60));
 }
+
 
 SolvedState::~SolvedState()
 {

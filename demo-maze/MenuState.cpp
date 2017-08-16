@@ -1,6 +1,12 @@
+//
+//  File:			MenuState.cpp
+//  Created:		15-08-2017
+//  Author:			Aleksandra Chrapkowska
+//  mail:			amchrapkowska@gmail.com
+//
+
 #include "MenuState.h"
 #include<string>
-
 
 
 MenuState::MenuState(Demo* demo)
@@ -62,15 +68,18 @@ MenuState::MenuState(Demo* demo)
 }
 
 
+
 void MenuState::PushErrorState()
 {
 	demo_->PushState(new ErrorState(demo_));
 }
 
+
 inline void MenuState::PushGenerateMazeState(int cols)
 {
 	demo_->PushState(new GenerateMazeState(demo_, cols));
 }
+
 
 void MenuState::CreateMenuItems(sf::Vector2f initial_position, 
 								sf::Vector2f menu_item_size, 
@@ -91,6 +100,7 @@ void MenuState::CreateMenuItems(sf::Vector2f initial_position,
 
 	}
 }
+
 
 void MenuState::Draw(const float timestamp)
 {
@@ -113,6 +123,7 @@ void MenuState::Draw(const float timestamp)
 	hud_->DrawHud(&(demo_->window_), timestamp);
 }
 
+
 void MenuState::Update(const float timestamp)
 {
 
@@ -122,6 +133,7 @@ void MenuState::Update(const float timestamp)
 	menu_items_[active_menu_index_]->SetHudColor(sf::Color(151, 201, 119));
 	
 }
+
 
 void MenuState::HandleEvents()
 {
@@ -260,6 +272,8 @@ void MenuState::HandleEvents()
 		}
 	}
 }
+
+
 
 MenuState::~MenuState()
 {

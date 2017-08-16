@@ -1,3 +1,9 @@
+//
+//  File:			DemoHelpers.cpp
+//  Created:		11-08-2017
+//  Author:			Aleksandra Chrapkowska
+//  mail:			amchrapkowska@gmail.com
+//
 
 #include<random>
 #include<chrono>

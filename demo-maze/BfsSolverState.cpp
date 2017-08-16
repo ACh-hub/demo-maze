@@ -22,11 +22,15 @@ void BfsSolverState::AddNeighbourToQueue(int index, int current_index)
 	}
 }
 
-void BfsSolverState::PushSolvedState()
+
+
+inline void BfsSolverState::PushSolvedState()
 {
 	demo_->PushState(new SolvedState(GetGrid(), GetShortestPath(), GetStartTile(), 
 					GetEndTile(), demo_, maze_cols_));
 }
+
+
 
 void BfsSolverState::Draw(const float timestamp)
 {
@@ -45,9 +49,9 @@ void BfsSolverState::Draw(const float timestamp)
 }
 
 
+// BFS
 void BfsSolverState::Update(const float timestamp)
 {
-	//Here be dragons
 	int index;
 	int current_index;
 
@@ -123,6 +127,9 @@ void BfsSolverState::Update(const float timestamp)
 	}
 }
 
+
+
+// Konstruktor
 BfsSolverState::BfsSolverState(std::vector<DemoTile*> grid, Demo * demo, int cols)
 	:
 	MazeState::MazeState(demo, cols)
@@ -148,5 +155,6 @@ BfsSolverState::BfsSolverState(std::vector<DemoTile*> grid, Demo * demo, int col
 	hud_->InsertHudMsg(L"Poszukiwanie najkrótszej œcie¿ki.", sf::Vector2f(10, 35));
 	hud_->InsertHudMsg(L"U¿yty algorytm BFS.", sf::Vector2f(10, 60));
 }
+
 
 BfsSolverState::~BfsSolverState() {}
