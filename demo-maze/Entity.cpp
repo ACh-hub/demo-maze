@@ -50,16 +50,16 @@ Dot::~Dot()
 
 void Pac::RotatePac(std::string direction)
 {
-	_pac_sprite_.setRotation(0);
+	pac_sprite_.setRotation(0);
 
 	if (direction == "NORTH")
-		_pac_sprite_.rotate(270);
+		pac_sprite_.rotate(270);
 	else if (direction == "EAST")
-		_pac_sprite_.rotate(0);
+		pac_sprite_.rotate(0);
 	else if (direction == "SOUTH")
-		_pac_sprite_.rotate(90);
+		pac_sprite_.rotate(90);
 	else if (direction == "WEST")
-		_pac_sprite_.rotate(180);
+		pac_sprite_.rotate(180);
 	else
 		;
 }
@@ -70,37 +70,43 @@ void Pac::MovePac(DemoTile * current_tile, DemoTile * next_tile)
 {
 	sf::Vector2f current_tile_coords = sf::Vector2f(current_tile->GetTileRealCoordinates());
 	sf::Vector2f next_tile_coords = sf::Vector2f(next_tile->GetTileRealCoordinates());
-	sf::Vector2f pac_coords = _pac_sprite_.getPosition();
+	sf::Vector2f pac_coords = pac_sprite_.getPosition();
 
 	float x_move = next_tile_coords.x - current_tile_coords.x;
 	float y_move = next_tile_coords.y - current_tile_coords.y;
 
-		_pac_sprite_.move(sf::Vector2f(x_move, y_move));
-		sf::sleep(sf::seconds(0.1)); // wait for a second(actually 0.02)
+	pac_sprite_.move(sf::Vector2f(x_move, y_move));
+	sf::sleep(sf::seconds(0.1)); // wait for a second(actually 0.02)
 }
 
 
 void Pac::Draw(sf::RenderWindow * window, const float timestamp)
 {
 	
-	window->draw(_pac_sprite_);
+	window->draw(pac_sprite_);
 }
 
 Pac::Pac(sf::Vector2i coordinates, int size)
 {
-	if (!_pac_texture_.loadFromFile("Textures//pac_texture.png"));
+
+	sf::IntRect framesize = sf::IntRect(0, 0, 128, 128);
+	if (!pac_texture_.loadFromFile("Textures//pac_texture.png", framesize));
 	{
 		// error...
 	}
 
-	_pac_sprite_.setTexture(_pac_texture_);
-	sf::Vector2u texture_size = _pac_texture_.getSize();
+	pac_animation_handler_ = new AnimationHandler(framesize);
+	pac_animation_handler_->AddAnimation(new DemoAnimation(0, 3, 1));
+
+	pac_sprite_.setTexture(pac_texture_);
+	sf::Vector2u texture_size = pac_texture_.getSize();
 	sf::Vector2f pac_scale;
 	pac_scale.x = (float)size / texture_size.x;
 	pac_scale.y = (float)size / texture_size.y;
-	_pac_sprite_.setOrigin(sf::Vector2f(texture_size.x/2,texture_size.y/2));
-	_pac_sprite_.setPosition(sf::Vector2f(coordinates.x+size/2,coordinates.y+size/2));
-	_pac_sprite_.setScale(sf::Vector2f(pac_scale));
+	pac_sprite_.setOrigin(sf::Vector2f(texture_size.x/2,texture_size.y/2));
+	pac_sprite_.setPosition(sf::Vector2f(coordinates.x+size/2,coordinates.y+size/2));
+	pac_sprite_.setScale(sf::Vector2f(pac_scale));
+
 
 }
 

@@ -57,17 +57,19 @@ void SolvedState::Draw(const float timestamp)
 	MazeState::Draw(timestamp);
 	for (auto it = path_dots_.begin(); it != path_dots_.end(); ++it)
 		(*it)->Draw(&(demo_->window_), timestamp);
-	_pac_man_->Draw(&(demo_->window_), timestamp);
+	pac_man_->Draw(&(demo_->window_), timestamp);
 	hud_->DrawHud(&(demo_->window_), timestamp);
 }
 
 
 void SolvedState::Update(const float timestamp)
 {
+	// Update pacman animation 
+	
 	// Remove the dot under pacman
 	for (auto it = path_dots_.begin(); it != path_dots_.end(); ) 
 	{
-		if ((*it)->GetCoordinates() == _pac_man_->GetCoordinates()) 
+		if ((*it)->GetCoordinates() == pac_man_->GetCoordinates()) 
 			it = path_dots_.erase(it);
 		else 
 			++it;
@@ -101,15 +103,15 @@ void SolvedState::Update(const float timestamp)
 		std::string next_turn = GetPassageDirection(current_tile_, next_tile);
 
 		// Rotate pacman
-		_pac_man_->RotatePac(next_turn);
+		pac_man_->RotatePac(next_turn);
 		// Move pacman
-		_pac_man_->MovePac(current_tile_,next_tile);
+		pac_man_->MovePac(current_tile_,next_tile);
 
 		current_tile_ = next_tile;
 	}
 	else
 	{
-		_pac_man_->MovePac(current_tile_, end_tile_);
+		pac_man_->MovePac(current_tile_, end_tile_);
 		current_tile_ = end_tile_;
 	}
 
@@ -186,7 +188,7 @@ SolvedState::SolvedState(std::vector<DemoTile*> grid,
 	path_dots_.push_back(new Dot(end_tile_->GetTileRealCoordinates(),
 								start_tile_->GetSize(), radius));
 
-	_pac_man_ = new Pac(start_tile_->GetTileRealCoordinates(), (int)start_tile_->GetSize());
+	pac_man_ = new Pac(start_tile_->GetTileRealCoordinates(), (int)start_tile_->GetSize());
 
 
 	GetHud()->InsertHudMsg(L"Space  nowe rozwi¹zanie", sf::Vector2f(10, 35));

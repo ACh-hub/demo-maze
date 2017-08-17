@@ -34,6 +34,7 @@ private:
 	int current_animation_;
 public:
 	sf::IntRect frame_bounds_, frame_size_;
+	void ClearAnimations() { if (!animations_.empty()) animations_.clear(); }
 	void AddAnimation(DemoAnimation* animation);
 	void Update(const float timestamp);
 	void ChangeAnimation(int animation_number);

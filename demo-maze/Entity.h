@@ -47,14 +47,13 @@ public:
 class Pac : public Dot
 {
 private:
-	sf::Texture _pac_texture_;
-	sf::Sprite _pac_sprite_;
-	AnimationHandler* animation_handler;
-
+	sf::Texture pac_texture_;
+	sf::Sprite pac_sprite_;
+	AnimationHandler* pac_animation_handler_;
 public:
 	void RotatePac(std::string direction);
 	void MovePac(DemoTile* current_tile, DemoTile* next_tile);
-	sf::Vector2i GetCoordinates() { return sf::Vector2i(_pac_sprite_.getPosition()); }
+	sf::Vector2i GetCoordinates() { return sf::Vector2i(pac_sprite_.getPosition()); }
 	virtual void Draw(sf::RenderWindow * window, const float timestamp);
 	Pac() {}
 	Pac(sf::Vector2i coordinates, int size);
