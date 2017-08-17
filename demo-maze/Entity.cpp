@@ -88,7 +88,7 @@ void Pac::Draw(sf::RenderWindow * window, const float timestamp)
 
 Pac::Pac(sf::Vector2i coordinates, int size)
 {
-	if (!_pac_texture_.loadFromFile("Textures//pac.png"));
+	if (!_pac_texture_.loadFromFile("Textures//pac_texture.png"));
 	{
 		// error...
 	}

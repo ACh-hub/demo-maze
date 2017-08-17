@@ -71,6 +71,7 @@
   <ItemGroup>
     <ClCompile Include="BfsSolverState.cpp" />
     <ClCompile Include="Demo.cpp" />
+    <ClCompile Include="DemoAnimation.cpp" />
     <ClCompile Include="DemoHelpers.cpp" />
     <ClCompile Include="DemoHud.cpp" />
     <ClCompile Include="DemoMain.cpp" />
@@ -85,6 +86,7 @@
   <ItemGroup>
     <ClInclude Include="BfsSolverState.h" />
     <ClInclude Include="Demo.h" />
+    <ClInclude Include="DemoAnimation.h" />
     <ClInclude Include="DemoHelpers.h" />
     <ClInclude Include="DemoHud.h" />
     <ClInclude Include="DemoState.h" />

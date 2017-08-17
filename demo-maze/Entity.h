@@ -1,16 +1,20 @@
 //
 //  File:			Entity.h
-//  Description:	Klasa do tworzenia i obs³ugi entity
-//					Klasa do tworzenia i obs³ugi pacmana oraz kropek œcie¿ki
+//  Description:	The class for entities: pacman, path dots.
 //  Created:		13-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
 
 #include <SFML\Graphics.hpp>
+
 #include "DemoTile.h"
+#include "DemoAnimation.h"
 
 
 class Entity
@@ -40,12 +44,13 @@ public:
 };
 
 
-
 class Pac : public Dot
 {
 private:
 	sf::Texture _pac_texture_;
 	sf::Sprite _pac_sprite_;
+	AnimationHandler* animation_handler;
+
 public:
 	void RotatePac(std::string direction);
 	void MovePac(DemoTile* current_tile, DemoTile* next_tile);
