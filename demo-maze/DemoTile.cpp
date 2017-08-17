@@ -4,6 +4,8 @@
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 
 #include "DemoTile.h"
 

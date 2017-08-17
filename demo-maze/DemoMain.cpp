@@ -6,7 +6,9 @@
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
-
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 
 
 #include"Demo.h"
@@ -17,6 +19,14 @@ int main()
 {
 	Demo demo(600, 600);
 
-	demo.PushState(new MenuState(&demo));
+	try
+	{
+		demo.PushState(new MenuState(&demo));
+	}
+	catch (DemoException const& exception)
+	{
+		demo.PushState(new ErrorState(&demo));
+	}
 	demo.RunDemo();
+
 }

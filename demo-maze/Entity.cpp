@@ -1,13 +1,16 @@
 //
-//  File:        Entity.cpp
-
-//  Created:     13-08-2017
-//  Author:      Aleksandra Chrapkowska
-//  mail:        amchrapkowska@gmail.com
+//  File:			Entity.cpp
+//  Created:		13-08-2017
+//  Author:			Aleksandra Chrapkowska
+//  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #include "Entity.h"
 #include "DemoTile.h"
+#include "DemoHelpers.h"
 
 Entity::Entity()
 {
@@ -25,7 +28,14 @@ void Dot::Draw(sf::RenderWindow * window, const float timestamp)
 	window->draw(_dot_shape_);
 }
 
+void Dot::Update(const float timestamp)
+{
+}
 
+int Dot::ChangeAnimation(int animation_number)
+{
+	return -1;
+}
 
 Dot::Dot(sf::Vector2i coordinates, int size, int radius)
 	:
@@ -50,16 +60,16 @@ Dot::~Dot()
 
 void Pac::RotatePac(std::string direction)
 {
-	_pac_sprite_.setRotation(0);
+	pac_sprite_.setRotation(0);
 
 	if (direction == "NORTH")
-		_pac_sprite_.rotate(270);
+		pac_sprite_.rotate(270);
 	else if (direction == "EAST")
-		_pac_sprite_.rotate(0);
+		pac_sprite_.rotate(0);
 	else if (direction == "SOUTH")
-		_pac_sprite_.rotate(90);
+		pac_sprite_.rotate(90);
 	else if (direction == "WEST")
-		_pac_sprite_.rotate(180);
+		pac_sprite_.rotate(180);
 	else
 		;
 }
@@ -70,40 +80,69 @@ void Pac::MovePac(DemoTile * current_tile, DemoTile * next_tile)
 {
 	sf::Vector2f current_tile_coords = sf::Vector2f(current_tile->GetTileRealCoordinates());
 	sf::Vector2f next_tile_coords = sf::Vector2f(next_tile->GetTileRealCoordinates());
-	sf::Vector2f pac_coords = _pac_sprite_.getPosition();
+
+	sf::Vector2f pac_coords = pac_sprite_.getPosition();
 
 	float x_move = next_tile_coords.x - current_tile_coords.x;
 	float y_move = next_tile_coords.y - current_tile_coords.y;
 
-		_pac_sprite_.move(sf::Vector2f(x_move, y_move));
-		sf::sleep(sf::seconds(0.1)); // wait for a second(actually 0.02)
+	pac_sprite_.move(sf::Vector2f(x_move, y_move));
+	sleep(sf::seconds(0.07));
 }
 
 
 void Pac::Draw(sf::RenderWindow * window, const float timestamp)
 {
+	window->draw(pac_sprite_);
+}
+
+void Pac::Update(const float timestamp)
+{
+	animation_handler_->Update(timestamp);
+	sf::IntRect frame_bounds = animation_handler_->frame_bounds_;
+
+	if (!pac_texture_.loadFromFile("Textures//pac_texture.png", frame_bounds))
+		throw DemoException("No texture");
+
+	int current_animation = animation_handler_->GetCurrentAnimation();
+	animation_handler_->GetAnimations()[current_animation]->frames_played++;
+}
+
+int Pac::ChangeAnimation(int animation_number)
+{
+	animation_handler_->ChangeAnimation(animation_number);
 	
-	window->draw(_pac_sprite_);
+	return animation_number;
 }
 
 Pac::Pac(sf::Vector2i coordinates, int size)
 {
-	if (!_pac_texture_.loadFromFile("Textures//pac.png"));
+
+	sf::IntRect framesize = sf::IntRect(0, 0, 128, 128);
+
+	if (!pac_texture_.loadFromFile("Textures//pac_texture.png", framesize));
 	{
 		// error...
 	}
 
-	_pac_sprite_.setTexture(_pac_texture_);
-	sf::Vector2u texture_size = _pac_texture_.getSize();
+	animation_handler_ = new AnimationHandler(framesize);
+	animation_handler_->AddAnimation(new DemoAnimation(0, 3, 50));
+	animation_handler_->AddAnimation(new DemoAnimation(0, 3, 17));
+	animation_handler_->AddAnimation(new DemoAnimation(0, 3, 17));
+	animation_handler_->AddAnimation(new DemoAnimation(0, 3, 1000));
+
+	pac_sprite_.setTexture(pac_texture_);
+	sf::Vector2u texture_size = pac_texture_.getSize();
 	sf::Vector2f pac_scale;
 	pac_scale.x = (float)size / texture_size.x;
 	pac_scale.y = (float)size / texture_size.y;
-	_pac_sprite_.setOrigin(sf::Vector2f(texture_size.x/2,texture_size.y/2));
-	_pac_sprite_.setPosition(sf::Vector2f(coordinates.x+size/2,coordinates.y+size/2));
-	_pac_sprite_.setScale(sf::Vector2f(pac_scale));
+	pac_sprite_.setOrigin(sf::Vector2f(texture_size.x/2,texture_size.y/2));
+	pac_sprite_.setPosition(sf::Vector2f(coordinates.x+size/2,coordinates.y+size/2));
+	pac_sprite_.setScale(sf::Vector2f(pac_scale));
+
 
 }
 
 Pac::~Pac()
-{
+{ 
 }

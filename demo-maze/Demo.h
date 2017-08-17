@@ -1,10 +1,12 @@
 //
 //  File:			Demo.h
-//	Description:	Manager stanów, g³ówna pêtla	
+//	Description:	State manager. Main loop.	
 //  Created:		11-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
 //
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 
 #pragma once
 
@@ -13,7 +15,6 @@
 #include<SFML\Graphics.hpp>
 
 #include"DemoState.h"
-
 
 
 class DemoState;

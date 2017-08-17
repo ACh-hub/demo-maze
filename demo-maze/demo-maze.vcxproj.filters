@@ -54,6 +54,9 @@
     <ClCompile Include="DemoState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DemoAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DemoState.h">
@@ -89,6 +92,9 @@
     <ClInclude Include="DemoHud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DemoAnimation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\Debug\Fonts\arial.ttf">
@@ -99,10 +105,10 @@
     <Image Include="..\Debug\Textures\background.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\Debug\Textures\pac.png">
+    <Image Include="..\Debug\Textures\sad_panda_is_sad.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\Debug\Textures\sad_panda_is_sad.png">
+    <Image Include="..\Debug\Textures\pac_texture.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

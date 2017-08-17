@@ -4,14 +4,18 @@
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
+
 
 #include "DemoState.h"
 #include "DemoTile.h"
 #include "ErrorState.h"
+#include "DemoHelpers.h"
 
 DemoState::DemoState(){}
 DemoState::~DemoState(){}
-
 
 
 void MazeState::_MakeGrid()
@@ -96,7 +100,7 @@ MazeState::MazeState(Demo* demo, int cols)
 	sf::Vector2f view_center = view_size * 0.5f;
 	main_view_.setCenter(view_center);
 
-	// 15% wysokoœci hud
+	// 15% hud height
 	sf::Vector2f maze_hud_pos = sf::Vector2f(0, view_size.y - (int)(view_size.y * 0.15f));
 	sf::Vector2f maze_hud_size = sf::Vector2f(view_size.x, (int)(view_size.y * 0.15f));
 

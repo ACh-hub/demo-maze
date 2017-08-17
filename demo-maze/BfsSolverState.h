@@ -1,9 +1,12 @@
 //
 //  File:			BfsSolverState.h
-//	Description:	Stan dla poszukiwania najkrótszej œcie¿ki. Algorytm BFS.	
+//	Description:	State for looking for the shortest path (BFS algorithm)	
 //  Created:		11-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
@@ -14,7 +17,6 @@
 #include "DemoTile.h"
 #include "DemoState.h"
 #include "SolvedState.h"
-
 
 
 class BfsSolverState : public MazeState

@@ -1,9 +1,12 @@
 //
 //  File:			DemoHud.h
-//	Description:	Wyœwietlanie HUD.	
+//	Description:	GUI(HUD) display.	
 //  Created:		13-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
@@ -14,9 +17,7 @@
 class HudTextSettings;
 class HudText;
 
-
-
-// Podstawowa klasa do rysowania HUD
+// Main class for drawing HUD
 class DemoHud
 {
 private:
@@ -35,8 +36,7 @@ public:
 };
 
 
-
-// Tekst do wyœletlania na HUD
+// HUD text
 class HudText
 {
 private:
@@ -52,8 +52,7 @@ public:
 };
 
 
-
-//Ustawienia HUD
+//HUD Settings
 class HudTextSettings
 {
 public:

@@ -1,9 +1,12 @@
 //
 //  File:        DemoTile.h
-//  Description: Klasa do tworzenia pojedyñczych komórek labiryntu
+//  Description: Classes for creating and managing the single tile of the maze
 //  Created:     11-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
@@ -11,7 +14,6 @@
 #include<SFML\Graphics.hpp>
 
 #include"Demo.h"
-
 
 
 class Walls;
@@ -41,7 +43,6 @@ public:
 };
 
 
-
 class Walls
 {
 private:
@@ -64,7 +65,6 @@ public:
 	Walls(int x, int y, int size);
 	~Walls();
 };
-
 
 
 class Flags
@@ -92,6 +92,4 @@ public:
 	Flags();
 	~Flags();
 };
-
-
 

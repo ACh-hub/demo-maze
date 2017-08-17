@@ -4,10 +4,11 @@
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
 //
+#include<string>
+#include <stdexcept>
 
 #include "MenuState.h"
-#include<string>
-
+#include "DemoHelpers.h"
 
 MenuState::MenuState(Demo* demo)
 {
@@ -19,15 +20,13 @@ MenuState::MenuState(Demo* demo)
 	sf::Vector2f view_center = view_size * 0.5f;
 	main_view_.setCenter(view_center);
 
-	//Background
+	//background
 	if (!background_image_.loadFromFile("Textures\\background.png"))
-	{
-		PushErrorState();
-	}
+		throw  DemoException("No_texture");
 	else
 		background_.setTexture(background_image_);
 
-	// Hud na górze
+	// upper HUD
 	sf::Vector2f title_pos = sf::Vector2f(0, 0);
 	sf::Vector2f title_size = sf::Vector2f(view_size.x, 150);
 	title_ = new DemoHud(title_pos, title_size);
@@ -56,7 +55,7 @@ MenuState::MenuState(Demo* demo)
 					menu_messages, sf::Color(169, 238, 171));	// visited_color
 	active_menu_index_ = 0;
 
-	// Hud na dole
+	// Lower HUD
 	sf::Vector2f maze_hud_pos = sf::Vector2f(0, view_size.y - (int)(view_size.y * 0.15f));
 	sf::Vector2f maze_hud_size = sf::Vector2f(view_size.x, (int)(view_size.y * 0.15f));
 	hud_ = new DemoHud(maze_hud_pos, maze_hud_size);
@@ -104,6 +103,7 @@ void MenuState::CreateMenuItems(sf::Vector2f initial_position,
 
 void MenuState::Draw(const float timestamp)
 {
+
 	demo_->window_.clear(sf::Color::White);
 	demo_->window_.setView(main_view_);
 	

@@ -4,6 +4,9 @@
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 
 #include "ErrorState.h"
 
@@ -53,7 +56,7 @@ ErrorState::ErrorState(Demo* demo)
 	
 	if (!background_image_.loadFromFile("Textures\\sad_panda_is_sad.png"))
 	{
-		//Error LATER ERRORSTATE
+		throw "Panda_is_sick";
 	}
 	else
 		panda_.setTexture(&background_image_);
@@ -75,7 +78,6 @@ ErrorState::ErrorState(Demo* demo)
 	hud_->InsertHudMsg(L"Coœ posz³o dramatycznie nie tak. Panda jest smutna :(", sf::Vector2f(70, 10));
 	hud_->InsertHudMsg(L"Esc wyjœcie", sf::Vector2f(70, 45));
 }
-
 
 ErrorState::~ErrorState()
 {
