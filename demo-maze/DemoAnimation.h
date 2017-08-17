@@ -20,7 +20,12 @@ class DemoAnimation
 public:
 	int start_frame_, end_frame_;
 	float duration_;
+	bool is_stopped_;
+	bool is_looped_;
+	int frames_played;
 	int GetAnimationLength() { return end_frame_ - start_frame_ + 1; }
+	void SetStopped(bool val) { is_stopped_ = val; }
+	void SetLooped(bool val) { is_looped_ = val; }
 	DemoAnimation(int start_frame, int end_frame, float duration);
 	~DemoAnimation();
 };
@@ -38,6 +43,8 @@ public:
 	void AddAnimation(DemoAnimation* animation);
 	void Update(const float timestamp);
 	void ChangeAnimation(int animation_number);
+	int GetCurrentAnimation() { return current_animation_; }
+	std::vector<DemoAnimation*> GetAnimations() { return animations_; }
 
 	AnimationHandler();
 	AnimationHandler(const sf::IntRect& frame_size);

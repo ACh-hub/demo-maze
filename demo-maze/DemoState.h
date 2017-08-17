@@ -1,10 +1,14 @@
 //
 //  File:			DemoState.h
-//  Description:	Podstawowa klasa dla stanu,
-//					podstawowa klasa dla labiryntu
+//  Description:	Abstract class for states,
+//					also maze class as a base class for states drawing 
+//					or solving the maze
 //  Created:		11-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
@@ -20,7 +24,6 @@ class Demo;
 class DemoTile;
 
 
-
 class DemoState
 {
 public:
@@ -34,7 +37,6 @@ public:
 	DemoState();
 	virtual ~DemoState();
 };
-
 
 
 class MazeState : public DemoState

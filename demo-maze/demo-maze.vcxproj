@@ -102,7 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\Debug\Textures\background.png" />
-    <Image Include="..\Debug\Textures\pac.png" />
+    <Image Include="..\Debug\Textures\pac_texture.png" />
     <Image Include="..\Debug\Textures\sad_panda_is_sad.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

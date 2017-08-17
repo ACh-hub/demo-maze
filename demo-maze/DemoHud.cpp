@@ -4,13 +4,17 @@
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
 //
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
+//
 
 #include "DemoHud.h"
+#include "DemoHelpers.h"
 
 
-
-// Dodaj wpisy do HUD.
-// @param relative_position pozycja jest relatywna do górnego lewego rogu HUD
+// Add HUD texts
+// @param relative_position describes position relative to upper left corner of 
+// hud instance
 void DemoHud::InsertHudMsg(std::wstring message, sf::Vector2f relative_position)
 {
 	sf::Vector2f real_position;
@@ -22,12 +26,10 @@ void DemoHud::InsertHudMsg(std::wstring message, sf::Vector2f relative_position)
 }
 
 
-
 void DemoHud::ClearHudMsgs()
 {
 	hud_messages_.clear();
 }
-
 
 
 void DemoHud::DrawHud(sf::RenderWindow * window, const float timestamp)
@@ -42,7 +44,6 @@ void DemoHud::DrawHud(sf::RenderWindow * window, const float timestamp)
 }
 
 
-
 DemoHud::DemoHud(sf::Vector2f position, sf::Vector2f size)
 {	
 	hud_messages_.clear();
@@ -54,12 +55,10 @@ DemoHud::DemoHud(sf::Vector2f position, sf::Vector2f size)
 }
 
 
-
 DemoHud::~DemoHud(){}
 
 
-
-// Wpis do HUD konstruktor
+// HUD text constructor
 HudText::HudText(std::wstring message, sf::Vector2f position)
 	:
 	message_text_(message), message_text_position(position)
@@ -73,18 +72,15 @@ HudText::HudText(std::wstring message, sf::Vector2f position)
 }
 
 
-
 HudText::~HudText(){}
 
 
 
-// Settings HUD konstruktor
+// Settings HUD 
 HudTextSettings::HudTextSettings()
 {
 	if (!message_font_.loadFromFile("Fonts\\arial.ttf"))
-	{
-	}
-
+		throw  DemoException("No_texture");
 }
 
 

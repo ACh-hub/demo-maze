@@ -105,10 +105,10 @@
     <Image Include="..\Debug\Textures\background.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\Debug\Textures\pac.png">
+    <Image Include="..\Debug\Textures\sad_panda_is_sad.png">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\Debug\Textures\sad_panda_is_sad.png">
+    <Image Include="..\Debug\Textures\pac_texture.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

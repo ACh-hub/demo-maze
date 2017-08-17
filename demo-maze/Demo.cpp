@@ -4,6 +4,9 @@
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
 //
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
+//
 
 #include<SFML\Graphics.hpp>
 #include<SFML\System.hpp>
@@ -49,7 +52,7 @@ void Demo::RunDemo()
 	while (window_.isOpen())
 	{
 		sf::Time elapsed = clock.restart();
-		float timestamp = elapsed.asSeconds();
+		float timestamp = elapsed.asMilliseconds();
 		if (TopState() == nullptr) continue;
 		TopState()->HandleEvents();
 		TopState()->Update(timestamp);

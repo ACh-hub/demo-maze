@@ -1,6 +1,6 @@
 //
 //  File:        SolvedState.h
-//  Description: state displaying pacman
+//  Description: State displaying pacman
 //  Created:     14-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
@@ -34,6 +34,7 @@ public:
 	void PushBfsSolverState();
 	void PushGenerateMazeState();
 	void PushMenuState();
+	void PushErrorState();
 	SolvedState(std::vector<DemoTile*> grid, std::vector<int> shortest_path, 
 				DemoTile * start, DemoTile * end, Demo* demo, int cols);
 	~SolvedState();

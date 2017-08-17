@@ -1,9 +1,12 @@
 //
 //  File:			MenuState.h
-//  Description:	G³ówne menu
+//  Description:	Main menu state.
 //  Created:		15-08-2017
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
@@ -13,7 +16,6 @@
 #include "GenerateMazeState.h"
 #include "DemoHud.h"
 #include "ErrorState.h"
-
 
 
 class MenuState : public DemoState

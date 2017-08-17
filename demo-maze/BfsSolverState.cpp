@@ -4,6 +4,9 @@
 //  Author:			Aleksandra Chrapkowska
 //  mail:			amchrapkowska@gmail.com
 //
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
+//
 
 #include <algorithm>
 
@@ -23,13 +26,11 @@ void BfsSolverState::AddNeighbourToQueue(int index, int current_index)
 }
 
 
-
 inline void BfsSolverState::PushSolvedState()
 {
 	demo_->PushState(new SolvedState(GetGrid(), GetShortestPath(), GetStartTile(), 
 					GetEndTile(), demo_, maze_cols_));
 }
-
 
 
 void BfsSolverState::Draw(const float timestamp)
@@ -122,14 +123,14 @@ void BfsSolverState::Update(const float timestamp)
 	}
 	else
 	{
-		// Recursive Backtracking tworzy labirynty idealne, 
-		// wiêc zawsze istnieje œcie¿ka
+		// Recursive Backtracking always creates "perfect mazes" 
+		// so there's always a path
 	}
 }
 
 
 
-// Konstruktor
+// State constructor
 BfsSolverState::BfsSolverState(std::vector<DemoTile*> grid, Demo * demo, int cols)
 	:
 	MazeState::MazeState(demo, cols)

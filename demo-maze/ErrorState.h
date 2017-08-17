@@ -1,9 +1,12 @@
 //
 //  File:        ErrorState.h
-//  Description: stan do wyœwietlania informacji o b³êdzie.
+//  Description: Sad panda. Error state.
 //  Created:     15-08-2017
 //  Author:      Aleksandra Chrapkowska
 //  mail:        amchrapkowska@gmail.com
+//
+// (c) 2017 Aleksandra Chrapkowska
+// This code is licensed under MIT license (see LICENSE.txt for details)
 //
 
 #pragma once
